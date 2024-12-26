@@ -16,12 +16,12 @@ function UserPage() {
 
         if (response.ok) {
           setUser(data);
-          setErrorMessage('');
+          setErrorMessage("");
         } else {
           setErrorMessage(data.message);
         }
       } catch (error) {
-        setErrorMessage('Error fetching user data');
+        setErrorMessage("Error fetching user data");
       }
     };
 
@@ -31,7 +31,7 @@ function UserPage() {
   }, [uniqueName]);
 
   if (errorMessage) {
-    return <div>{errorMessage}</div>;
+    return <div className="text-red-600 text-center mt-10">{errorMessage}</div>;
   }
 
   return (
@@ -47,14 +47,16 @@ function UserPage() {
               Hello, <strong>{user.username}</strong>!
             </p>
             <p className="text-gray-700 mb-6">
-              Your personalized page has been created. Enjoy the festivities and the divine experience of Maha Kumbh 2025.
+              Your personalized page has been created. Enjoy the festivities and the divine experience of Maha Kumbh 2024.
             </p>
-            <button
-              onClick={() => window.history.back()}
-              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Go Back
-            </button>
+            {/* Display the user's image as a large avatar */}
+            {user.image && (
+              <img
+                src={user.image}
+                alt={`${user.username}'s Uploaded`}
+                className="rounded-full w-48 h-48 mx-auto mb-4" // Larger avatar size
+              />
+            )}
           </div>
         ) : (
           <div>Loading...</div>

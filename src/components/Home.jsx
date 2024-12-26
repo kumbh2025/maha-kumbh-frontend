@@ -4,16 +4,27 @@ import Navbar from './Navbar';
 function Home() {
   const [name, setName] = useState('');
   const [uniqueName, setUniqueName] = useState('');
+  const [file, setFile] = useState(null);
   const [generatedURL, setGeneratedURL] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]); // Set the uploaded file
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('username', name);
+    formData.append('uniqueName', uniqueName);
+    if (file) {
+      formData.append('image', file); // Attach image file
+    }
+
     try {
       const response = await fetch('http://localhost:5000/api/createUser', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: name, uniqueName }),
+        body: formData,
       });
 
       const data = await response.json();
@@ -73,6 +84,21 @@ function Home() {
               onChange={(e) => setUniqueName(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-orange-600 text-sm font-bold mb-2"
+              htmlFor="image"
+            >
+              Upload Image
+            </label>
+            <input
+              id="image"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="flex items-center justify-center">
