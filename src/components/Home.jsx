@@ -22,7 +22,7 @@ function Home() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/createUser', {
+      const response = await fetch('https://maha-kumbh-backned.onrender.com/api/createUser', {
         method: 'POST',
         body: formData,
       });

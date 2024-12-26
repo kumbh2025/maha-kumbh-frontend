@@ -11,7 +11,7 @@ function UserPage() {
     // Fetch user data from backend
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/user/${uniqueName}`);
+        const response = await fetch(`https://maha-kumbh-backned.onrender.com/api/user/${uniqueName}`);
         const data = await response.json();
 
         if (response.ok) {
