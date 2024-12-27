@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 
 function Home() {
@@ -7,9 +7,30 @@ function Home() {
   const [file, setFile] = useState(null);
   const [generatedURL, setGeneratedURL] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [userCount, setUserCount] = useState(0);
+
+  useEffect(() => {
+    // Fetch the user count from the backend
+    const fetchUserCount = async () => {
+      try {
+        const response = await fetch('https://maha-kumbh-backned.onrender.com/api/userCount');
+        const data = await response.json();
+
+        if (response.ok) {
+          setUserCount(data.count);
+        } else {
+          console.error('Error fetching user count:', data.message);
+        }
+      } catch (error) {
+        console.error('Server error while fetching user count:', error.message);
+      }
+    };
+
+    fetchUserCount();
+  }, []);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]); // Set the uploaded file
+    setFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -18,7 +39,7 @@ function Home() {
     formData.append('username', name);
     formData.append('uniqueName', uniqueName);
     if (file) {
-      formData.append('image', file); // Attach image file
+      formData.append('image', file);
     }
 
     try {
@@ -44,6 +65,12 @@ function Home() {
   return (
     <div className="bg-orange-50 min-h-screen">
       <Navbar />
+      <div className="text-center mt-6">
+        <h1 className="text-3xl font-bold text-orange-700">Welcome to Maha Kumbh 2024</h1>
+        <p className="text-lg mt-4 text-orange-600">
+          Total Registered Users: <span className="font-bold">{userCount}</span>
+        </p>
+      </div>
       <div className="flex justify-center items-center mt-10">
         <form
           onSubmit={handleSubmit}
