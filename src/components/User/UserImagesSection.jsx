@@ -27,9 +27,9 @@ const UserImagesSection = ({ user }) => {
 
   const downloadImage = (image) => {
     const link = document.createElement("a");
-    link.href = image;
-    link.target = "_blank"; // Open in a new tab for download
-    link.download = image.split("/").pop(); // Automatically get the image name from the URL
+    link.href = image; // Image URL
+    link.target = "_blank"; // Open in a new tab
+    link.download = image.split("/").pop(); // Get the image file name from the URL
     link.click(); // Trigger the download
   };
 
@@ -79,7 +79,7 @@ const UserImagesSection = ({ user }) => {
             >
               ✕
             </button>
-            
+
             {/* Share and Download Buttons */}
             <div className="absolute bottom-2 right-2 space-x-3 flex items-center">
               {/* WhatsApp Share Button */}
