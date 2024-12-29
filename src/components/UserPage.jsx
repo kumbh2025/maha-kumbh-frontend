@@ -36,7 +36,6 @@ function UserPage() {
 
   return (
     <div className="bg-orange-50 min-h-screen">
-      <Navbar />
       <div className="flex justify-center items-center mt-10">
         {user ? (
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-md w-full text-center">
