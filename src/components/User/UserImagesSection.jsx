@@ -73,36 +73,36 @@ const UserImagesSection = ({ user }) => {
               className="rounded-lg shadow-md max-w-3xl max-h-80 object-cover transform scale-125 transition-transform"
             />
             <button
-              className="absolute top-2 right-2 text-black text-2xl font-semibold p-2"
+              className="absolute top-2 right-2 text-red-800 text-2xl font-semibold p-2"
               onClick={closeModal} // Close the modal on button click
             >
               ✕
             </button>
             
             {/* Share Buttons */}
-            <div className="absolute bottom-2 right-2 space-x-2">
+            <div className="absolute bottom-2 right-2 space-x-3 flex items-center">
               {/* WhatsApp Share Button */}
               <button
-                className="bg-green-500 text-white text-lg px-4 py-2 rounded-full"
+                className="bg-green-500 text-white p-2 rounded-full"
                 onClick={() => shareOnWhatsApp(selectedImage)} // Trigger WhatsApp share
               >
-                WhatsApp
+                <i className="fab fa-whatsapp text-xl"></i>
               </button>
 
               {/* Facebook Share Button */}
               <button
-                className="bg-blue-600 text-white text-lg px-4 py-2 rounded-full"
+                className="bg-blue-600 text-white p-2 rounded-full"
                 onClick={() => shareOnFacebook(selectedImage)} // Trigger Facebook share
               >
-                Facebook
+                <i className="fab fa-facebook-f text-xl"></i>
               </button>
 
               {/* Download Image Button */}
               <button
-                className="bg-gray-700 text-white text-lg px-4 py-2 rounded-full"
+                className="bg-gray-700 text-white p-2 rounded-full"
                 onClick={() => downloadImage(selectedImage)} // Trigger image download
               >
-                Download
+                <i className="fas fa-download text-xl"></i>
               </button>
             </div>
           </div>
