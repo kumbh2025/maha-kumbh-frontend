@@ -9,7 +9,7 @@ const ImageGridSection = ({ title, images }) => (
           <img
             src={image.url || "https://via.placeholder.com/150?text=Image+Unavailable"}
             alt={image.place}
-            className="rounded-lg shadow-md w-full h-48 object-cover mb-4"
+            className="rounded-lg shadow-md w-full h-48 object-cover mb-4 transition-transform transform hover:scale-105"  {/* Added hover scale effect */}
             onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=Image+Unavailable")}
           />
           <p className="text-orange-800 font-medium">{image.place}</p>

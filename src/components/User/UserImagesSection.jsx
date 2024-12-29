@@ -14,6 +14,24 @@ const UserImagesSection = ({ user }) => {
     setSelectedImage(null);
   };
 
+  const shareOnWhatsApp = (image) => {
+    const message = `Check out this image: ${image}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
+  const shareOnFacebook = (image) => {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(image)}`;
+    window.open(facebookUrl, "_blank");
+  };
+
+  const downloadImage = (image) => {
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = image.split("/").pop(); // Download image using its file name
+    link.click();
+  };
+
   if (!user.images || user.images.length === 0) {
     return null; // If no images are available, return null (nothing is rendered)
   }
@@ -60,6 +78,33 @@ const UserImagesSection = ({ user }) => {
             >
               ✕
             </button>
+            
+            {/* Share Buttons */}
+            <div className="absolute bottom-2 right-2 space-x-2">
+              {/* WhatsApp Share Button */}
+              <button
+                className="bg-green-500 text-white text-lg px-4 py-2 rounded-full"
+                onClick={() => shareOnWhatsApp(selectedImage)} // Trigger WhatsApp share
+              >
+                WhatsApp
+              </button>
+
+              {/* Facebook Share Button */}
+              <button
+                className="bg-blue-600 text-white text-lg px-4 py-2 rounded-full"
+                onClick={() => shareOnFacebook(selectedImage)} // Trigger Facebook share
+              >
+                Facebook
+              </button>
+
+              {/* Download Image Button */}
+              <button
+                className="bg-gray-700 text-white text-lg px-4 py-2 rounded-full"
+                onClick={() => downloadImage(selectedImage)} // Trigger image download
+              >
+                Download
+              </button>
+            </div>
           </div>
         </div>
       )}

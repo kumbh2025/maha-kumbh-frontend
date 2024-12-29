@@ -14,10 +14,10 @@ const Header = () => {
         
         {/* Inline Text Section */}
         <div className="text-center">
-          <span className="text-orange-600 text-xl font-semibold md:text-2xl">
+          <span className="text-orange-800 text-xl font-semibold md:text-2xl">
             Welcome to
           </span>
-          <span className="text-red-600 text-xl font-semibold md:text-2xl ml-2">
+          <span className="text-red-700 text-xl font-semibold md:text-2xl ml-2">
             Maha Kumbh 2025
           </span>
         </div>
