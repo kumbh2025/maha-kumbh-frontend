@@ -12,14 +12,14 @@ const Header = () => {
           className="w-16 h-16 md:w-20 md:h-20 rounded-full mr-4"
         />
         
-        {/* Text Section */}
+        {/* Inline Text Section */}
         <div className="text-center">
-          <div className="text-orange-600 text-xl font-semibold md:text-2xl">
+          <span className="text-orange-600 text-xl font-semibold md:text-2xl">
             Welcome to
-          </div>
-          <div className="text-red-600 text-xl font-semibold md:text-2xl">
+          </span>
+          <span className="text-red-600 text-xl font-semibold md:text-2xl ml-2">
             Maha Kumbh 2025
-          </div>
+          </span>
         </div>
       </div>
 
