@@ -1,4 +1,3 @@
-// Home.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import UserForm from './UserForm';
@@ -77,6 +76,23 @@ function Home() {
           Total Registered Users: <span className="font-bold">{userCount}</span>
         </p>
       </div>
+
+      {/* Display generated URL above the form */}
+      {generatedURL && (
+        <div className="mt-4 text-center">
+          <p className="text-orange-600">Your URL:</p>
+          <a
+            href={generatedURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
+            {generatedURL}
+          </a>
+        </div>
+      )}
+
+      {/* User Form */}
       <div className="flex justify-center items-center mt-2">
         <UserForm
           name={name}
@@ -89,19 +105,6 @@ function Home() {
           errorMessage={errorMessage}
         />
       </div>
-      {generatedURL && (
-        <div className="mt-2 text-center">
-          <p className="text-orange-600">Your URL:</p>
-          <a
-            href={generatedURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 underline"
-          >
-            {generatedURL}
-          </a>
-        </div>
-      )}
     </div>
   );
 }
