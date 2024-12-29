@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Header from './Header';
 import UserHeroSection from "./UserHeroSection";
 import UserImagesSection from "./UserImagesSection";
 import ImageGridSection from "./ImageGridSection";
@@ -40,6 +41,7 @@ function UserPage() {
 
   return (
     <div className="bg-orange-50 min-h-screen">
+      <Header/>
       {user && (
         <>
           <UserHeroSection user={user} />
