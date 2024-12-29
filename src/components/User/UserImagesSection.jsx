@@ -28,8 +28,9 @@ const UserImagesSection = ({ user }) => {
   const downloadImage = (image) => {
     const link = document.createElement("a");
     link.href = image;
-    link.download = image.split("/").pop(); // Download image using its file name
-    link.click();
+    link.target = "_blank"; // Open in a new tab for download
+    link.download = image.split("/").pop(); // Automatically get the image name from the URL
+    link.click(); // Trigger the download
   };
 
   if (!user.images || user.images.length === 0) {
@@ -73,13 +74,13 @@ const UserImagesSection = ({ user }) => {
               className="rounded-lg shadow-md max-w-3xl max-h-80 object-cover transform scale-125 transition-transform"
             />
             <button
-              className="absolute top-2 right-2 text-red-800 text-2xl font-semibold p-2"
+              className="absolute top-2 right-2 text-red-900 text-2xl font-semibold p-2"
               onClick={closeModal} // Close the modal on button click
             >
               ✕
             </button>
             
-            {/* Share Buttons */}
+            {/* Share and Download Buttons */}
             <div className="absolute bottom-2 right-2 space-x-3 flex items-center">
               {/* WhatsApp Share Button */}
               <button
