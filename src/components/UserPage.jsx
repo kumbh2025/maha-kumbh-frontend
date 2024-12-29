@@ -24,7 +24,8 @@ function UserPage() {
     { url: "https://kumbh.gov.in/Content/assets/img/Home/TakshakeshwarNath.jpeg", place: "तक्षकेश्वरनाथ मंदिर" },
     { url: "https://kumbh.gov.in/Content/assets/img/Home/VeniMadhav.jpg", place: "वेणी माधव मंदिर" },
     { url: "https://kumbh.gov.in/Content/assets/img/Attraction2025/PadilaMahadevTemple.jpg", place: "पदिला महादेव मंदिर" },
-    { url: "https://kumbh.gov.in/Content/assets/img/Home/AkhileshwarMahadev.jpeg", place: "अखिलेश्वर महादेव मंदिर" }
+    { url: "https://kumbh.gov.in/Content/assets/img/Home/AkhileshwarMahadev.jpeg", place: "अखिलेश्वर महादेव मंदिर" },
+    { url: "https://scontent.fknu1-5.fna.fbcdn.net/v/t39.30808-1/437941599_1479207603000494_2093058718468488530_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e99d92&_nc_aid=0&_nc_ohc=V-1OzXfJYCQQ7kNvgFVGN6M&_nc_zt=24&_nc_ht=scontent.fknu1-5.fna&_nc_gid=A5B7A02wqbRkTN5bYzOSi3B&oh=00_AYBgzvGxtr9JBmPDJQVTEtQXwJylYwgmygQ46QUdQa_eAQ&oe=6777161C", place: "माँ निमहरा मंदिर" }
   ];
   
   const heritageSites = [
@@ -38,12 +39,10 @@ function UserPage() {
     { url: "https://kumbh.gov.in/Content/assets/img/about/ShivalyaPark.png", place: "शिवालय पार्क" },
     { url: "https://kumbh.gov.in/Content/assets/img/Home/MahaRishiBhardwajAshram.jpeg", place: "महर्षि भारद्वाज आश्रम" },
     { url: "https://kumbh.gov.in/Content/assets/img/Attraction2025/Cathedral.jpeg", place: "कैथेड्रल" },
-  ];
-  
-  const kalakariImages = [
     { url: "https://kumbh.gov.in/Content/assets/img/Home/Kalakriti_1.jpeg", place: "कलाकृति 1" },
     { url: "https://kumbh.gov.in/Content/assets/img/Home/Kalakriti_7.jpeg", place: "कलाकृति 2" },
   ];
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -125,9 +124,8 @@ function UserPage() {
         {user ? (
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-6xl">
             {renderImageGrid("Attractive Places of Sangam", kumbhImages)}
-            {renderImageGrid("Attractive Places of Temples", templeImages)}
+            {renderImageGrid("Famous Temples of Prayagraj", templeImages)}
             {renderImageGrid("Attractive Heritage Sites", heritageSites)}
-            {renderImageGrid("Attractive Kalakari", kalakariImages)}
           </div>
         ) : (
           <div>Loading...</div>
