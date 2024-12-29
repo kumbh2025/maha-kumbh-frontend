@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex flex-col justify-center items-center py-4 px-4 md:px-10 border-b border-orange-300 bg-orange-50">
+    <div className="flex flex-col justify-center items-center py-4 px-4 md:px-10 border-b-2 border-gray-600 bg-orange-50">
       {/* Logo and Text Section */}
       <div className="flex items-center">
         {/* Logo */}
@@ -22,9 +22,6 @@ const Header = () => {
           </span>
         </div>
       </div>
-
-      {/* Border Line Below Navbar */}
-      <div className="w-full border-b-2 border-gray-600 mt-4"></div>
     </div>
   );
 };
