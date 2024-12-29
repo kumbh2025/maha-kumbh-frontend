@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { kumbhImages, templeImages, heritageSites } from "./ImageData";
 
 function UserPage() {
   const { uniqueName } = useParams();
@@ -31,6 +32,25 @@ function UserPage() {
       fetchUser();
     }
   }, [uniqueName]);
+
+  const renderImageGrid = (title, images) => (
+    <div className="mt-10">
+      <h2 className="text-2xl font-semibold text-orange-700 mb-4 text-center">{title}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {images.map((image, index) => (
+          <div key={index} className="text-center">
+            <img
+              src={image.url || fallbackImage}
+              alt={image.place}
+              className="rounded-lg shadow-md w-full h-48 object-cover"
+              onError={(e) => (e.target.src = fallbackImage)}
+            />
+            <p className="text-orange-800 font-medium mt-2">{image.place}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   if (errorMessage) {
     return <div className="text-red-600 text-center mt-10">{errorMessage}</div>;
@@ -83,6 +103,13 @@ function UserPage() {
             कोई छवि उपलब्ध नहीं है।
           </p>
         )}
+      </div>
+
+      {/* Predefined Images Section */}
+      <div className="flex flex-col justify-center items-center max-w-7xl mx-auto py-12">
+        {renderImageGrid("कुम्भ स्थल", kumbhImages)}
+        {renderImageGrid("मंदिर स्थल", templeImages)}
+        {renderImageGrid("सांस्कृतिक और ऐतिहासिक स्थल", heritageSites)}
       </div>
     </div>
   );
