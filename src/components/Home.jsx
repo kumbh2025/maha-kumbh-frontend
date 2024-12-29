@@ -4,8 +4,9 @@ import Navbar from './Navbar';
 function Home() {
   const [name, setName] = useState('');
   const [uniqueName, setUniqueName] = useState('');
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]); // State to handle multiple files
   const [generatedURL, setGeneratedURL] = useState(null);
+  const [uploadedImages, setUploadedImages] = useState([]); // Store uploaded image URLs
   const [errorMessage, setErrorMessage] = useState('');
   const [userCount, setUserCount] = useState(0);
 
@@ -30,17 +31,20 @@ function Home() {
   }, []);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    setFiles([...e.target.files]); // Store all selected files
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append('username', name);
     formData.append('uniqueName', uniqueName);
-    if (file) {
-      formData.append('image', file);
-    }
+
+    // Append all files to the form data
+    Array.from(files).forEach((file) => {
+      formData.append('images', file); // 'images' matches the field name in the backend
+    });
 
     try {
       const response = await fetch('https://maha-kumbh-backned.onrender.com/api/createUser', {
@@ -52,10 +56,12 @@ function Home() {
 
       if (response.ok) {
         setGeneratedURL(data.url);
+        setUploadedImages(data.images || []); // Display uploaded images if available
         setErrorMessage('');
       } else {
         setErrorMessage(data.message);
         setGeneratedURL(null);
+        setUploadedImages([]);
       }
     } catch (error) {
       setErrorMessage('Server error. Please try again later.');
@@ -116,14 +122,15 @@ function Home() {
           <div className="mb-4">
             <label
               className="block text-orange-600 text-sm font-bold mb-2"
-              htmlFor="image"
+              htmlFor="images"
             >
-              Upload Image
+              Upload Images
             </label>
             <input
-              id="image"
+              id="images"
               type="file"
               accept="image/*"
+              multiple // Allow multiple image selection
               onChange={handleFileChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -150,6 +157,19 @@ function Home() {
               >
                 {generatedURL}
               </a>
+              <div className="mt-4">
+                <p className="text-orange-600">Uploaded Images:</p>
+                <div className="flex flex-wrap justify-center">
+                  {uploadedImages.map((url, index) => (
+                    <img
+                      key={index}
+                      src={url}
+                      alt={`Uploaded ${index + 1}`}
+                      className="w-20 h-20 object-cover rounded m-2 border border-orange-400"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           )}
         </form>
