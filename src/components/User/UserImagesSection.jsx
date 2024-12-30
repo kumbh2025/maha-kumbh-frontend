@@ -26,31 +26,27 @@ const UserImagesSection = ({ user }) => {
   };
 
   const downloadImage = (image) => {
-    const link = document.createElement("a");
-    link.href = image; // Image URL
-    link.target = "_blank"; // Open in a new tab
-    link.download = image.split("/").pop(); // Get the image file name from the URL
-    link.click(); // Trigger the download
+    // Modify the image URL to include Cloudinary's `fl_attachment` transformation
+    const downloadUrl = image.replace("/upload/", "/upload/fl_attachment/");
+    window.open(downloadUrl, "_blank");
   };
 
   if (!user.images || user.images.length === 0) {
-    return null; // If no images are available, return null (nothing is rendered)
+    return null;
   }
 
   return (
-    <div className="flex flex-col justify-center items-center max-w-7xl mx-auto py-12">
-      <h2 className="text-2xl font-semibold text-orange-700 mb-4 text-center">
-        आपकी पवित्र स्मृतियां
+    <div className="mt-10 px-4 sm:px-8 lg:px-16">
+      <h2 className="text-2xl font-semibold text-orange-700 mb-6 text-center">
+        MahaKumbh Memories
       </h2>
-
-      {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {user.images.map((image, index) => (
           <div key={index} className="text-center">
             <img
               src={image || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt={`User Image ${index + 1}`}
-              className="rounded-lg shadow-md w-full h-48 object-cover transition-transform transform hover:scale-105 cursor-pointer"
+              className="rounded-lg shadow-md w-full h-48 object-cover mb-4 transition-transform transform hover:scale-105 cursor-pointer"
               onClick={() => openModal(image)}
               onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=Image+Unavailable")}
             />
@@ -62,46 +58,41 @@ const UserImagesSection = ({ user }) => {
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-          onClick={closeModal} // Close modal if the dark area is clicked
+          onClick={closeModal}
         >
           <div
-            className="relative"
-            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside the image area
+            className="relative w-full max-w-md sm:max-w-xl bg-white p-4 sm:p-6 rounded-lg shadow-lg"
+            onClick={(e) => e.stopPropagation()}
           >
             <img
               src={selectedImage || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt="Selected"
-              className="rounded-lg shadow-md max-w-3xl max-h-80 object-cover transform scale-125 transition-transform"
+              className="rounded-lg shadow-md w-full h-64 object-cover"
             />
             <button
-              className="absolute top-2 right-2 text-red-900 text-2xl font-semibold p-2"
-              onClick={closeModal} // Close the modal on button click
+              className="absolute top-2 right-2 text-red-900 text-2xl font-semibold p-1"
+              onClick={closeModal}
             >
               ✕
             </button>
 
             {/* Share and Download Buttons */}
-            <div className="absolute bottom-2 right-2 space-x-3 flex items-center">
-              {/* WhatsApp Share Button */}
+            <div className="flex justify-between items-center mt-4 space-x-2">
               <button
-                className="bg-green-500 text-white p-2 rounded-full"
-                onClick={() => shareOnWhatsApp(selectedImage)} // Trigger WhatsApp share
+                className="bg-green-500 text-white p-2 rounded-full flex-grow"
+                onClick={() => shareOnWhatsApp(selectedImage)}
               >
                 <i className="fab fa-whatsapp text-xl"></i>
               </button>
-
-              {/* Facebook Share Button */}
               <button
-                className="bg-blue-600 text-white p-2 rounded-full"
-                onClick={() => shareOnFacebook(selectedImage)} // Trigger Facebook share
+                className="bg-blue-600 text-white p-2 rounded-full flex-grow"
+                onClick={() => shareOnFacebook(selectedImage)}
               >
                 <i className="fab fa-facebook-f text-xl"></i>
               </button>
-
-              {/* Download Image Button */}
               <button
-                className="bg-gray-700 text-white p-2 rounded-full"
-                onClick={() => downloadImage(selectedImage)} // Trigger image download
+                className="bg-gray-700 text-white p-2 rounded-full flex-grow"
+                onClick={() => downloadImage(selectedImage)}
               >
                 <i className="fas fa-download text-xl"></i>
               </button>
