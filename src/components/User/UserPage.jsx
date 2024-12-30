@@ -50,14 +50,14 @@ function UserPage() {
             title="कुम्भ स्थल"
             images={kumbhImages}
           />
-          <ImageGridSection
+          {/* <ImageGridSection
             title="मंदिर स्थल"
             images={templeImages}
-          />
-          <ImageGridSection
+          /> */}
+          {/* <ImageGridSection
             title="सांस्कृतिक और ऐतिहासिक स्थल"
             images={heritageSites}
-          />
+          /> */}
         </>
       )}
     </div>
