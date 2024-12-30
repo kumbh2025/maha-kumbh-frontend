@@ -4,29 +4,29 @@
 
 /* Blinking Animation for Logo */
 @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  .animate-blink {
-    animation: blink 3s infinite;
+  50% {
+    opacity: 0;
   }
-  
-  /* Horizontal Scroll Animation for Text */
-  @keyframes scroll {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+}
+
+.animate-blink {
+  animation: blink 7s infinite;
+}
+
+/* Horizontal Scroll Animation for Text */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
   }
-  
-  .animate-scroll {
-    animation: scroll 15s linear infinite;
+  100% {
+    transform: translateX(-100%);
   }
-  
+}
+
+.animate-scroll {
+  animation: scroll 11s linear infinite;
+}
