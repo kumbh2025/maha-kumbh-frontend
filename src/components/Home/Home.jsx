@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import UserForm from "./UserForm";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 function Home() {
   const [name, setName] = useState("");
