@@ -26,7 +26,6 @@ const UserImagesSection = ({ user }) => {
   };
 
   const downloadImage = (image) => {
-    // Modify the image URL to include Cloudinary's `fl_attachment` transformation
     const downloadUrl = image.replace("/upload/", "/upload/fl_attachment/");
     window.open(downloadUrl, "_blank");
   };
@@ -36,7 +35,7 @@ const UserImagesSection = ({ user }) => {
   }
 
   return (
-    <div className="mt-10 px-4 sm:px-8 lg:px-16">
+    <div className="mt-6 px-4 sm:px-8 lg:px-16">
       <h2 className="text-2xl font-semibold text-orange-700 mb-6 text-center">
         Maha-Kumbh Memories
       </h2>
@@ -70,7 +69,7 @@ const UserImagesSection = ({ user }) => {
               className="rounded-lg shadow-md w-full h-64 object-cover"
             />
             <button
-              className="absolute top-2 right-2 text-red-900 text-2xl font-semibold p-1"
+              className="absolute top-2 right-2 bg-gray-200 rounded-full p-1 text-red-900 text-2xl font-semibold"
               onClick={closeModal}
             >
               ✕
@@ -79,16 +78,16 @@ const UserImagesSection = ({ user }) => {
             {/* Share and Download Buttons */}
             <div className="flex justify-between items-center mt-4 space-x-2">
               <button
-                className="bg-green-500 text-white p-2 rounded-full flex-grow"
-                onClick={() => shareOnWhatsApp(selectedImage)}
-              >
-                <i className="fab fa-whatsapp text-xl"></i>
-              </button>
-              <button
                 className="bg-blue-600 text-white p-2 rounded-full flex-grow"
                 onClick={() => shareOnFacebook(selectedImage)}
               >
                 <i className="fab fa-facebook-f text-xl"></i>
+              </button>
+              <button
+                className="bg-green-500 text-white p-2 rounded-full flex-grow"
+                onClick={() => shareOnWhatsApp(selectedImage)}
+              >
+                <i className="fab fa-whatsapp text-xl"></i>
               </button>
               <button
                 className="bg-gray-700 text-white p-2 rounded-full flex-grow"
