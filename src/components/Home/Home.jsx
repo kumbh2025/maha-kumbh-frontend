@@ -6,6 +6,7 @@ import Footer from "./footer";
 function Home() {
   const [name, setName] = useState("");
   const [uniqueName, setUniqueName] = useState("");
+  const [password, setPassword] = useState(""); // New state for password
   const [files, setFiles] = useState([]);
   const [generatedURL, setGeneratedURL] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -13,6 +14,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   const backendURL = "https://maha-kumbh-backned.onrender.com"; // Hardcoded backend URL
+  // const backendURL = "http://localhost:5000"; // localhost URL
 
   useEffect(() => {
     const fetchUserCount = async () => {
@@ -46,6 +48,7 @@ function Home() {
     const formData = new FormData();
     formData.append("username", name);
     formData.append("uniqueName", uniqueName);
+    formData.append("password", password); // Include password
     files.forEach((file) => formData.append("images", file));
 
     try {
@@ -79,8 +82,6 @@ function Home() {
           Total Registered Users: <span className="font-bold">{userCount}</span>
         </p>
       </div>
-
-      {/* Display generated URL above the form */}
       {generatedURL && (
         <div className="mt-4 text-center">
           <p className="text-orange-600">Your URL:</p>
@@ -94,10 +95,7 @@ function Home() {
           </a>
         </div>
       )}
-
-      {/* Layout for images and form */}
       <div className="flex flex-col lg:flex-row justify-center items-center mt-8 gap-8 px-4">
-        {/* Left image for desktop */}
         <div className="hidden lg:block w-1/3">
           <img
             src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735590800/Bade_Hanuman_me481o.jpg"
@@ -105,22 +103,20 @@ function Home() {
             className="w-full h-auto rounded-lg shadow-lg"
           />
         </div>
-
-        {/* User Form */}
         <div className="w-full lg:w-2/5 px-4 flex justify-center">
           <UserForm
             name={name}
             setName={setName}
             uniqueName={uniqueName}
             setUniqueName={setUniqueName}
+            password={password} // Pass password prop
+            setPassword={setPassword} // Pass setPassword prop
             handleFileChange={handleFileChange}
             isLoading={isLoading}
             handleSubmit={handleSubmit}
             errorMessage={errorMessage}
           />
         </div>
-
-        {/* Right image for desktop */}
         <div className="hidden lg:block w-1/3">
           <img
             src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735591729/sangam_people_us3oe4.jpg"
@@ -129,8 +125,7 @@ function Home() {
           />
         </div>
       </div>
-      <Footer/>
-
+      <Footer />
     </div>
   );
 }
