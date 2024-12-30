@@ -15,6 +15,22 @@ const Gallery = () => {
     setSelectedImage(null);
   };
 
+  const shareOnWhatsApp = (image) => {
+    const message = `Check out this image: ${image}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const shareOnFacebook = (image) => {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(image)}`;
+    window.open(facebookUrl, '_blank');
+  };
+
+  const downloadImage = (image) => {
+    const downloadUrl = image.replace('/upload/', '/upload/fl_attachment/');
+    window.open(downloadUrl, '_blank');
+  };
+
   const renderGallerySection = (title, images) => (
     <div className="mb-12">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-orange-600 mb-6">
@@ -48,7 +64,7 @@ const Gallery = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-orange-500 mb-6 tracking-wide">
           महाकुंभ <span className="text-red-600 underline decoration-red-400">गैलरी</span>
         </h1>
-        <div className="border-b-4 border-orange-500 w-128 mx-auto mb-12"></div>
+        <div className="border-b-4 border-orange-500 w-32 mx-auto mb-12"></div>
         {/* Render Gallery Sections */}
         {renderGallerySection('कुंभ स्थल', kumbhImages)}
         {renderGallerySection('प्रमुख मंदिर', templeImages)}
@@ -77,6 +93,28 @@ const Gallery = () => {
             >
               ✕
             </button>
+
+            {/* Share and Download Buttons */}
+            <div className="flex justify-between items-center mt-4 space-x-2">
+              <button
+                className="bg-blue-600 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                onClick={() => shareOnFacebook(selectedImage)}
+              >
+                <i className="fab fa-facebook-f text-xl"></i>
+              </button>
+              <button
+                className="bg-green-500 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                onClick={() => shareOnWhatsApp(selectedImage)}
+              >
+                <i className="fab fa-whatsapp text-xl"></i>
+              </button>
+              <button
+                className="bg-gray-700 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                onClick={() => downloadImage(selectedImage)}
+              >
+                <i className="fas fa-download text-xl"></i>
+              </button>
+            </div>
           </div>
         </div>
       )}
