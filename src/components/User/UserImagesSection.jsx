@@ -35,8 +35,8 @@ const UserImagesSection = ({ user }) => {
   }
 
   return (
-    <div className="mt-6 px-4 sm:px-8 lg:px-16">
-      <h2 className="text-2xl font-semibold text-orange-700 mb-6 text-center">
+    <div className="mt-5 px-4 sm:px-8 lg:px-16">
+       <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 drop-shadow-md mb-6 text-center">
         Maha-Kumbh Memories
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
