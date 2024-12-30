@@ -5,11 +5,11 @@ const Header = () => {
     <div className="flex flex-col justify-center items-center py-2 px-4 md:px-10 border-b-2 border-gray-600 bg-orange-50">
       {/* Logo and Text Section */}
       <div className="flex items-center">
-        {/* Logo with Blinking Effect */}
+       
         <img
-          src="https://kumbh.gov.in/Content/assets/img/logo/kumbh-logo.png"
+          src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735564598/kumbh/f5cmfvjdb4mxlrlavkiw.png"
           alt="Logo"
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full mr-4 animate-blink"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full mr-4 "
         />
         
         {/* Inline Text Section with Horizontal Scroll */}

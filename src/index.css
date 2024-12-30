@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Blinking Animation for Logo */
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.animate-blink {
-  animation: blink 7s infinite;
-}
-
 /* Horizontal Scroll Animation for Text */
 @keyframes scroll {
   0% {
@@ -29,4 +14,15 @@
 
 .animate-scroll {
   animation: scroll 11s linear infinite;
+}
+
+/* logo */
+@keyframes subtle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
 }
