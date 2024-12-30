@@ -7,7 +7,7 @@ const UserHeroSection = ({ user }) => {
     // Set a timeout to show the second line after 1 second
     const timer = setTimeout(() => {
       setShowSecondLine(true);
-    }, 1000); // 1000ms = 1 second
+    }, 2000); // 1000ms = 1 second
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, []);
