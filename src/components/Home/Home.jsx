@@ -94,6 +94,37 @@ function Home() {
         </p>
       </div>
 
+      
+      <div className="flex flex-col lg:flex-row justify-center items-center mt-8 gap-8 lg:px-4 px-1">
+        <div className="hidden lg:block w-1/3">
+          <img
+            src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735590800/Bade_Hanuman_me481o.jpg"
+            alt="Left Image"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+        <div className="w-full lg:w-2/5 px-2 flex justify-center">
+          <UserForm
+            name={name}
+            setName={setName}
+            uniqueName={uniqueName}
+            setUniqueName={setUniqueName}
+            password={password} // Pass password prop
+            setPassword={setPassword} // Pass setPassword prop
+            handleFileChange={handleFileChange}
+            isLoading={isLoading}
+            handleSubmit={handleSubmit}
+            errorMessage={errorMessage}
+          />
+        </div>
+        <div className="hidden lg:block w-1/3">
+          <img
+            src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735591729/sangam_people_us3oe4.jpg"
+            alt="Right Image"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
       {generatedURL && (
         <div className="mt-4 text-center">
           <div className="border-4 border-orange-500 p-4 rounded-lg bg-orange-50 shadow-lg">
@@ -129,36 +160,6 @@ function Home() {
         </div>
       )}
 
-      <div className="flex flex-col lg:flex-row justify-center items-center mt-8 gap-8 lg:px-4 px-1">
-        <div className="hidden lg:block w-1/3">
-          <img
-            src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735590800/Bade_Hanuman_me481o.jpg"
-            alt="Left Image"
-            className="w-full h-auto rounded-lg shadow-lg"
-          />
-        </div>
-        <div className="w-full lg:w-2/5 px-2 flex justify-center">
-          <UserForm
-            name={name}
-            setName={setName}
-            uniqueName={uniqueName}
-            setUniqueName={setUniqueName}
-            password={password} // Pass password prop
-            setPassword={setPassword} // Pass setPassword prop
-            handleFileChange={handleFileChange}
-            isLoading={isLoading}
-            handleSubmit={handleSubmit}
-            errorMessage={errorMessage}
-          />
-        </div>
-        <div className="hidden lg:block w-1/3">
-          <img
-            src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735591729/sangam_people_us3oe4.jpg"
-            alt="Right Image"
-            className="w-full h-auto rounded-lg shadow-lg"
-          />
-        </div>
-      </div>
       <Footer />
     </div>
   );
