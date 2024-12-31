@@ -36,7 +36,7 @@ const UserImagesSection = ({ user }) => {
 
   return (
     <div className="mt-5 px-4 sm:px-8 lg:px-16">
-       <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 drop-shadow-md mb-6 text-center">
+      <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 drop-shadow-md mb-6 text-center">
         Maha-Kumbh Memories
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -45,9 +45,10 @@ const UserImagesSection = ({ user }) => {
             <img
               src={image || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt={`User Image ${index + 1}`}
-              className="rounded-lg shadow-md w-full h-48 object-cover mb-4 transition-transform transform hover:scale-105 cursor-pointer"
+              className="rounded-lg shadow-md w-full h-full object-cover mb-4 transition-transform transform hover:scale-105 cursor-pointer"
               onClick={() => openModal(image)}
               onError={(e) => (e.target.src = "https://via.placeholder.com/150?text=Image+Unavailable")}
+              style={{ objectPosition: "0 -10%" }} // Adjust the object position to leave 10% at the top
             />
           </div>
         ))}
@@ -67,6 +68,7 @@ const UserImagesSection = ({ user }) => {
               src={selectedImage || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt="Selected"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              style={{ objectPosition: "0 -10%" }} // Same object position for the modal image
             />
             <button
               className="absolute top-2 right-2 bg-gray-200 rounded-full p-1 text-red-900 text-2xl font-semibold"

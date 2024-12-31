@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { kumbhImages, templeImages, heritageSites } from './ImageData';
 
 const Gallery = () => {
@@ -33,23 +35,23 @@ const Gallery = () => {
 
   const renderGallerySection = (title, images) => (
     <div className="mb-12">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-orange-600 mb-6">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-orange-700 mb-8 tracking-tight">
         {title}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition duration-300 cursor-pointer"
+            className="relative shadow-md rounded-lg overflow-hidden group cursor-pointer transform transition duration-300 hover:scale-105"
             onClick={() => openModal(image.url)}
           >
             <img
               src={image.url}
               alt={image.place}
-              className="w-full h-64 object-cover"
+              className="w-full h-64 object-cover rounded-lg group-hover:opacity-75"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 flex justify-center items-end transition duration-300">
-              <p className="text-white text-center font-semibold">{image.place}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <p className="text-white font-semibold">{image.place}</p>
             </div>
           </div>
         ))}
@@ -58,66 +60,64 @@ const Gallery = () => {
   );
 
   return (
-    <div className="bg-orange-50 text-orange-900 p-6 md:p-12">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Heading */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-orange-500 mb-6 tracking-wide">
-          महाकुंभ <span className="text-red-600 underline decoration-red-400">गैलरी</span>
-        </h1>
-        <div className="border-b-4 border-orange-500 w-32 mx-auto mb-12"></div>
-        {/* Render Gallery Sections */}
-        {renderGallerySection('कुंभ स्थल', kumbhImages)}
-        {renderGallerySection('प्रमुख मंदिर', templeImages)}
-        {renderGallerySection('ऐतिहासिक धरोहर', heritageSites)}
+    <div className="bg-orange-50 text-orange-900 min-h-screen">
+      <Navbar />
+      <div className="px-6 sm:px-8 lg:px-16 py-8">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-center text-orange-500 mb-8 tracking-wide">
+            महाकुंभ <span className="text-red-600 underline decoration-red-400">गैलरी</span>
+          </h1>
+          <div className="border-b-4 border-orange-500 w-32 mx-auto mb-12"></div>
+          {renderGallerySection('कुंभ स्थल', kumbhImages)}
+          {renderGallerySection('प्रमुख मंदिर', templeImages)}
+          {renderGallerySection('ऐतिहासिक धरोहर', heritageSites)}
+        </div>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-md sm:max-w-xl bg-white p-4 sm:p-6 rounded-lg shadow-lg"
+            className="relative w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={selectedImage || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt="Selected"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
+              className="w-full h-96 object-cover"
             />
-            {/* Close Button */}
             <button
-              className="absolute top-2 right-2 bg-gray-200 rounded-full p-1 text-red-900 text-2xl font-semibold transition-transform transform hover:scale-105"
+              className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 text-2xl font-bold hover:bg-red-700"
               onClick={closeModal}
             >
               ✕
             </button>
-
-            {/* Share and Download Buttons */}
-            <div className="flex justify-between items-center mt-4 space-x-2">
+            <div className="p-4 flex justify-between items-center space-x-4">
               <button
-                className="bg-blue-600 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                className="flex-grow bg-blue-600 text-white p-3 rounded-lg transition hover:bg-blue-700"
                 onClick={() => shareOnFacebook(selectedImage)}
               >
-                <i className="fab fa-facebook-f text-xl"></i>
+                <i className="fab fa-facebook-f"></i> Share on Facebook
               </button>
               <button
-                className="bg-green-500 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                className="flex-grow bg-green-500 text-white p-3 rounded-lg transition hover:bg-green-600"
                 onClick={() => shareOnWhatsApp(selectedImage)}
               >
-                <i className="fab fa-whatsapp text-xl"></i>
+                <i className="fab fa-whatsapp"></i> Share on WhatsApp
               </button>
               <button
-                className="bg-gray-700 text-white p-2 rounded-full flex-grow transition-transform transform hover:scale-105"
+                className="flex-grow bg-gray-800 text-white p-3 rounded-lg transition hover:bg-gray-900"
                 onClick={() => downloadImage(selectedImage)}
               >
-                <i className="fas fa-download text-xl"></i>
+                <i className="fas fa-download"></i> Download
               </button>
             </div>
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

@@ -35,7 +35,7 @@ function UserForm({
   return (
     <form
       onSubmit={handleSubmitWithValidation}
-      className="bg-gradient-to-b from-orange-50 to-orange-100 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 max-w-md w-full transform transition-all duration-300 hover:scale-105"
+      className="bg-gradient-to-b from-orange-50 to-orange-100 shadow-lg rounded-lg px-2 pt-4 pb-4 mb-4 max-w-md w-full transform transition-all duration-300 hover:scale-105"
     >
       <h2 className="text-2xl font-bold text-orange-800 text-center mb-5">
         🌟 Create Your Website 🌟

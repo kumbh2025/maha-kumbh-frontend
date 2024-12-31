@@ -4,6 +4,7 @@ import Header from './Header';
 import UserHeroSection from "./UserHeroSection";
 import UserImagesSection from "./UserImagesSection";
 import ImageGridSection from "./ImageGridSection";
+import Footer from "./Footer";
 import { kumbhImages } from "./ImageData";
 
 function UserPage() {
@@ -77,7 +78,7 @@ function UserPage() {
         <>
           <UserHeroSection user={user} />
           <UserImagesSection user={user} />
-          <ImageGridSection title="कुम्भ स्थल" images={kumbhImages} />
+          <ImageGridSection title="Temples and Major Attractions Around Triveni Sangam" images={kumbhImages} />
 
           {/* Delete User Button */}
           <div className="text-center mt-6">
@@ -131,6 +132,7 @@ function UserPage() {
           </div>
         </>
       )}
+      <Footer />
     </div>
   );
 }
