@@ -110,6 +110,16 @@ function UserForm({
           className="shadow-md appearance-none border border-orange-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
       </div>
+      <div className="text-center mt-1">
+        <a
+          href="https://drive.google.com/file/d/1nz7vCXuKlTa-1IY6JG3uSfHRkYCJbLPb/preview" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          📄 User Manual: How to Register
+        </a>
+      </div>
       {isLoading ? (
         <p className="text-center text-orange-600 font-medium animate-pulse">
           Processing...
