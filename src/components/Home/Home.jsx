@@ -128,12 +128,12 @@ function Home() {
       {generatedURL && (
         <div className="mt-4 text-center">
           <div className="border-4 border-orange-500 p-4 rounded-lg bg-orange-50 shadow-lg">
-            <p className="text-orange-600">Click below to open Your Page 🥳</p>
-            👉<a
+            <p className="text-orange-600">Click below to open Your Page 👇</p>
+            <a
               href={generatedURL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-blue-600 hover:text-blue-800 underline text-sm sm:text-xs break-all"
             >
               {generatedURL}
             </a>

@@ -76,17 +76,17 @@ const Gallery = () => {
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 m-2"
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden"
+            className="relative w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden "
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={selectedImage || "https://via.placeholder.com/150?text=Image+Unavailable"}
               alt="Selected"
-              className="w-full h-96 object-cover"
+              className="w-full h-96 object-cover p-2"
             />
             <button
               className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 text-2xl font-bold hover:bg-red-700"
@@ -99,19 +99,19 @@ const Gallery = () => {
                 className="flex-grow bg-blue-600 text-white p-3 rounded-lg transition hover:bg-blue-700"
                 onClick={() => shareOnFacebook(selectedImage)}
               >
-                <i className="fab fa-facebook-f"></i> Share on Facebook
+                <i className="fab fa-facebook-f"></i> 
               </button>
               <button
                 className="flex-grow bg-green-500 text-white p-3 rounded-lg transition hover:bg-green-600"
                 onClick={() => shareOnWhatsApp(selectedImage)}
               >
-                <i className="fab fa-whatsapp"></i> Share on WhatsApp
+                <i className="fab fa-whatsapp"></i> 
               </button>
               <button
                 className="flex-grow bg-gray-800 text-white p-3 rounded-lg transition hover:bg-gray-900"
                 onClick={() => downloadImage(selectedImage)}
               >
-                <i className="fas fa-download"></i> Download
+                <i className="fas fa-download"></i> 
               </button>
             </div>
           </div>
