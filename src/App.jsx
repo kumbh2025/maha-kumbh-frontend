@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import UserPage from "./components/User/UserPage";
-import AboutKumbh from "./components/Home/AboutKumbh";
-import Gallery from "./components/Home/Gallery";
-import AboutPrayagraj from "./components/Home/AboutPrayagraj";
-import MahaKumbh2025 from "./components/Home/MahaKumbh2025";
+import AboutKumbh from "./components/AboutKumbh/AboutKumbh";
+import Gallery from "./components/Gallery/Gallery";
+import AboutPrayagraj from "./components/AboutPrayagraj/AboutPrayagraj";
+import MahaKumbh2025 from "./components/MahaKumbh2025/MahaKumbh2025";
 
 function App() {
   return (

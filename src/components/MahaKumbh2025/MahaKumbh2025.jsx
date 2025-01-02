@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import places from './places'; // Import the places data
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
+import places from './places';
 
 const MahaKumbh2025 = () => {
   const [imageSrc, setImageSrc] = useState(
