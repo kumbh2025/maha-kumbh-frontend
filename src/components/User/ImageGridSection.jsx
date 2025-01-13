@@ -1,7 +1,7 @@
 import React from "react";
 
 const ImageGridSection = ({ title, images }) => (
-  <div className="mt-10 px-4 sm:px-8 lg:px-16 border-t-2 border-red-600"> {/* Adjusted padding for responsive spacing */}
+  <div className="mt-10 py-2 px-4 sm:px-8 lg:px-16 border-t-2 border-red-600"> {/* Adjusted padding for responsive spacing */}
     <h2 className="text-2xl font-semibold text-orange-700 mb-6 text-center">{title}</h2> {/* Increased bottom margin */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {images.map((image, index) => (
