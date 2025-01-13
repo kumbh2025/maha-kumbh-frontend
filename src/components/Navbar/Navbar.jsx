@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <div className="relative z-50">
-      <div className="flex justify-between items-center py-4 px-4 md:px-10 border-b border-orange-300 bg-gradient-to-r from-orange-50 to-orange-100 shadow-lg">
+      <div className="flex justify-between items-center py-4 px-4 md:px-10 border-b border-orange-300 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg">
         {/* Logo Section */}
         <img
           src="https://res.cloudinary.com/duqxqg7d0/image/upload/v1735564598/kumbh/f5cmfvjdb4mxlrlavkiw.png"
@@ -57,7 +57,7 @@ const Navbar = () => {
             ].map((link, index) => (
               <li key={index}>
                 <Link
-                  className="text-orange-700 hover:text-orange-900 text-lg font-medium px-4 py-2 transition-all duration-300 hover:underline"
+                  className="text-orange-900 hover:text-orange-600 text-lg font-medium px-4 py-2 transition-all duration-300 hover:underline "
                   to={link.to}
                 >
                   {link.label}

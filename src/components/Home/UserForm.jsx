@@ -1,4 +1,5 @@
 import React from "react";
+import GeneratedURLSection from "./GeneratedURLSection";
 
 function UserForm({
   name,
@@ -11,6 +12,7 @@ function UserForm({
   isLoading,
   handleSubmit,
   errorMessage,
+  generatedURL
 }) {
   const validatePassword = (value) => {
     // Allow only numeric passwords with exactly 4 digits
@@ -33,6 +35,7 @@ function UserForm({
   };
 
   return (
+    <div className="flex flex-col items-center justify-center  bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg">
     <form
       onSubmit={handleSubmitWithValidation}
       className="bg-gradient-to-b from-orange-50 to-orange-100 shadow-lg rounded-lg px-2 pt-4 pb-4 mb-4 max-w-md w-full transform transition-all duration-300 hover:scale-105"
@@ -140,6 +143,14 @@ function UserForm({
         </p>
       )}
     </form>
+    {generatedURL && (
+        <GeneratedURLSection
+          generatedURL={generatedURL}
+          uniqueName={uniqueName}
+          password={password}
+        />
+      )}
+    </div>
   );
 }
 

@@ -14,12 +14,13 @@ const MainContent = ({
   isLoading,
   handleSubmit,
   errorMessage,
+  generatedURL
 }) => (
   <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-8 mt-4 px-0">
     {/* UserForm: Full screen on phones, auto height based on content */}
     <div className="order-1 lg:order-2 lg:col-span-1 w-full flex items-center justify-center px-0 h-auto">
-      <div className="w-full max-w-md">
-        <h2 className="text-xl font-extrabold text-orange-800 uppercase tracking-wider text-center mb-4 lg:mb-6 lg:block hidden">
+      <div className="w-full max-w-md bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg py-3">
+        <h2 className="text-xl font-extrabold text-orange-800 uppercase tracking-wider text-center mb-4 lg:mb-6 ">
           User Form
         </h2>
         <UserForm
@@ -33,12 +34,13 @@ const MainContent = ({
           isLoading={isLoading}
           handleSubmit={handleSubmit}
           errorMessage={errorMessage}
+          generatedURL={generatedURL}
         />
       </div>
     </div>
 
     {/* Official Website: Hidden on phones */}
-    <div className="hidden lg:block order-2 lg:order-1 lg:col-span-1 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg p-6">
+    <div className=" lg:block order-2 lg:order-1 lg:col-span-1 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg p-6">
       <h2 className="text-xl font-extrabold text-orange-800 uppercase tracking-wider text-center mb-4">
         Official Websites
       </h2>
@@ -46,7 +48,7 @@ const MainContent = ({
     </div>
 
     {/* Bathing Dates: Hidden on phones */}
-    <div className="hidden lg:block order-3 lg:order-3 lg:col-span-1 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg p-6">
+    <div className=" lg:block order-3 lg:order-3 lg:col-span-1 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-200 shadow-lg rounded-lg p-6">
       <h2 className="text-xl font-extrabold text-orange-800 uppercase tracking-wider text-center mb-4">
         Bathing Dates
       </h2>

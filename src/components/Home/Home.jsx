@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Header from "./Header";
 import MainContent from "./MainContent";
-import GeneratedURLSection from "./GeneratedURLSection";
+// import GeneratedURLSection from "./GeneratedURLSection";
 
 function Home() {
   const [name, setName] = useState("");
@@ -87,14 +87,15 @@ function Home() {
         isLoading={isLoading}
         handleSubmit={handleSubmit}
         errorMessage={errorMessage}
+        generatedURL={generatedURL}  
       />
-      {generatedURL && (
+      {/* {generatedURL && (
         <GeneratedURLSection
           generatedURL={generatedURL}
           uniqueName={uniqueName}
           password={password}
         />
-      )}
+      )} */}
       <Footer />
     </div>
   );
