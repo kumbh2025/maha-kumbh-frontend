@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex flex-col justify-center items-center py-2 px-4 md:px-10 border-b-2 border-gray-600 bg-orange-50">
+    <div className="flex flex-col justify-center items-center py-2 px-4 md:px-10 border-b-2 border-red-600 bg-orange-50">
       {/* Logo and Text Section */}
       <div className="flex items-center">
        
